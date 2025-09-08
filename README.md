@@ -40,6 +40,13 @@ FROM "2023_Cyclistic_Trips"
 ;
 *Result: 571,9877*
 
+--identify how many rides there were for each member type
+SELECT
+  member_casual,
+  COUNT(*) as 'Member_rides'
+FROM "2023_Cyclistic_Trips"
+GROUP BY member_casual;
+
 -- Identify duplicates for ride ID
 SELECT ride_id, COUNT(ride_id) 
 FROM users
@@ -51,7 +58,7 @@ SELECT
   AVG(ride_length)
 FROM "2023_Cyclistic_Trips";
 
--- Locate ride which did not last o
+-- Locate rides with no time length
 SELECT ride_length
 FROM "2023_Cyclistic_Trips"
 WHERE ride_length = '00:00:00';
