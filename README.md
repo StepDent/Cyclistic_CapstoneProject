@@ -103,6 +103,9 @@ FROM "2023_Cyclistic_Trips"
 GROUP BY member_casual;
 
 
+<img width="1204" height="518" alt="image" src="https://github.com/user-attachments/assets/751447c8-4794-4e87-bb76-f4e6ff1c5bf7" />
+
+
 
 
 
