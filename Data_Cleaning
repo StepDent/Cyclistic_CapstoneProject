@@ -1,1 +1,95 @@
-Code for combining data
+-- Combining the 12 Months worth of cyclistic data 
+CREATE TABLE '2023_Cyclistic_Trips' AS 
+SELECT * FROM "Cyclistic_02_2023"
+UNION ALL
+SELECT * FROM "cyclistic_03_2023"
+UNION ALL
+SELECT * FROM "cyclistic_04_2023"
+UNION ALL
+SELECT * FROM "cyclistic_05_2023"
+UNION ALL
+SELECT * FROM "cyclistic_06_2023"
+UNION ALL
+SELECT * FROM "cyclistic_07_2023"
+UNION ALL
+SELECT * FROM "cyclistic_08_2023"
+UNION ALL
+SELECT * FROM "cyclistic_09_2023"
+UNION ALL
+SELECT * FROM "cyclistic_10_2023"
+UNION ALL
+SELECT * FROM "cyclistic_11_2023"
+UNION ALL
+SELECT * FROM "cyclistic_12_2023"
+UNION ALL
+SELECT * FROM "cyclistic_01_2024";
+;
+
+--Identify rows with trips with no ride length
+SELECT ride_length, count(ride_length)
+FROM "2023_Cyclistic_Trips"
+WHERE ride_length = '00:00:00';
+(85058 Trips)
+
+-- Remove rows with trips with no ride length 
+DELETE 
+FROM '2023_Cyclistic_Trips'
+WHERE ride_length = '00:00:00';
+(Rows deleted)
+-- Identify rows with NULL values 
+
+-- Update cells with NULL to 0 
+UPDATE "2023_Cyclistic_Trips" SET start_station_name=0 WHERE start_station_name IS NULL; - 'start_station name'
+UPDATE "2023_Cyclistic_Trips" SET start_station_id=0 WHERE start_station_id IS NULL; - 'start_station_id'
+UPDATE "2023_Cyclistic_Trips" SET end_station_name=0 WHERE end_station_name IS NULL; - 'end_station_name'
+UPDATE "2023_Cyclistic_Trips" SET end_station_id=0 WHERE end_station_id IS NULL; - 'end_station_id'
+UPDATE "2023_Cyclistic_Trips" SET end_lat=0 WHERE end_lat IS NULL; - 'end_lat'
+UPDATE "2023_Cyclistic_Trips" SET end_lng=0 WHERE end_lng IS NULL; - 'end_lng'
+
+-- Remove those rows with 0 values 
+DELETE 
+FROM '2023_Cyclistic_Trips'
+WHERE start_station_name = '0'
+WHERE end_station_name = '0'
+WHERE start_station_id = '0'
+WHERE end_station_name= '0'
+WHERE end_station_id= '0'
+WHERE end_lat = '0'
+WHERE end_lng = '0';
+
+-- Add a column for name of day of week 
+ALTER TABLE "2023_Cyclistic_Trips" ADD COLUMN weekday TEXT;
+
+-- Update weekday column with weekday names 
+UPDATE "2023_Cyclistic_Trips"
+SET weekday = CASE day_of_week
+    WHEN 1 THEN 'Sunday'
+    WHEN 2 THEN 'Monday'
+    WHEN 3 THEN 'Tuesday'
+    WHEN 4 THEN 'Wednesday'
+    WHEN 5 THEN 'Thursday'
+    WHEN 6 THEN 'Friday'
+    WHEN 7 THEN 'Saturday'
+END;
+
+-- Clean and create new columns for started_at and ended at column
+
+ALTER TABLE "2023_Cyclistic_Trips" ADD COLUMN started_at_clean TEXT;
+
+UPDATE "2023_Cyclistic_Trips"
+SET started_at_clean = 
+     substr(started_at, 7, 4) || '-' ||    -- YYYY
+    substr(started_at, 4, 2) || '-' ||    -- MM
+    substr(started_at, 1, 2) || ' ' ||    -- DD
+    substr(started_at, 12, 5) || ':00';   -- HH:MM:SS
+
+ALTER TABLE "2023_Cyclistic_Trips" ADD COLUMN ended_at_at_clean TEXT;
+
+UPDATE "2023_Cyclistic_Trips"
+SET ended_at_at_clean = 
+     substr(ended_at,7, 4) || '-' ||    -- YYYY
+    substr(ended_at, 4, 2) || '-' ||    -- MM
+    substr(ended_at, 1, 2) || ' ' ||    -- DD
+    substr(ended_at, 12, 5) || ':00';  -- HH:MM:SS
+
+
