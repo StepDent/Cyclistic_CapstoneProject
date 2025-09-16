@@ -1,0 +1,51 @@
+-- Count of trips split between casual and member trips
+SELECT
+  member_casual,
+  COUNT(*) as 'Member_rides'
+FROM "2023_Cyclistic_Trips"
+GROUP BY member_casual;
+
+-- Explore the split between casual and member types per bike type 
+SELECT member_casual, rideable_type,
+COUNT(*) AS rides
+FROM "2023_Cyclistic_Trips"
+GROUP BY member_casual, rideable_type;
+
+-- Identify how many rides each month per member_casual
+SELECT member_casual, Month,
+COUNT(*) AS rides
+FROM "2023_Cyclistic_Trips"
+GROUP BY Month, member_casual
+ORDER BY Mont
+
+-- Identify average trip length per user over 2023
+SELECT month, AVG(ride_length) AS avg_ride_duration
+FROM "2023_Cyclistic_Trips"
+GROUP BY month;
+
+-- Identify average trips per each day of the week
+SELECT member_casual, weekday,
+	COUNT(*) AS rides
+FROM "2023_Cyclistic_Trips"
+GROUP BY weekday, member_casual;
+
+-- Identify average trip length per day
+SELECT weekday, member_casual, AVG(ride_length) AS avg_ride_duration
+FROM "2023_Cyclistic_Trips"
+GROUP BY weekday, member_casual;
+
+-- Identify average start time of each trip 
+SELECT
+    weekday, member_casual,
+    CASE 
+        WHEN CAST(strftime('%H', clean_started_at) AS INTEGER) < 12 THEN 'Morning'
+        ELSE 'Afternoon'
+    END AS time_of_day,
+    printf('%02d:%02d',
+        avg(strftime('%H', clean_started_at) * 60 + strftime('%M', clean_started_at)) / 60,
+        avg(strftime('%H', clean_started_at) * 60 + strftime('%M', clean_started_at)) % 60
+    ) AS avg_start_time
+FROM "2023_Cyclistic_Trips"
+GROUP BY weekday, member_casual, time_of_day
+ORDER BY member_casual, time_of_day;
+
