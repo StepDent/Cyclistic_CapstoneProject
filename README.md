@@ -71,22 +71,101 @@ Total Rows: 5,719,877
 As part of the data cleaning prcoess I removed the following Null values and trips that do not have any trip length. 
 
 Rows with no trip length: 85058 
+
 Null values
+
 start_station_name - 875716
+
 start_station_id - 875848
+
 end_station_name - 929202
+
 end_station_id - 929343
+
 end_lat - 6990
+
 end_lng - 6990
 
 Final row count: 4,282,634
 
-<img width="390" height="164" alt="image" src="https://github.com/user-attachments/assets/d27306cf-8c74-43ef-a02d-c9e71db88852" />
+
+<img width="319" height="100" alt="image" src="https://github.com/user-attachments/assets/d27306cf-8c74-43ef-a02d-c9e71db88852" />
 
 
 <img width="319" height="100" alt="image" src="https://github.com/user-attachments/assets/dd19a055-03b4-4311-91fb-914edc535b18" />
 
 
+Data Cleaning Steps taking
+1. Added a ride_length column.
+   
+2. Added a month column.
+   
+3. Added a weekday column.
+  
+4. Cleaned datetime for Started_at and ended_at to match SQL lite built in format.
+
+ANALYSE
+
+<img width="452" height="271" alt="image" src="https://github.com/user-attachments/assets/44d18a0c-9fd3-4d78-ae2f-bb158a81b84c" />
+
+> The sum of trips per user type
+
+> Member trips make up nearly two thirds of cyclistic business.
+
+<img width="452" height="186" alt="image" src="https://github.com/user-attachments/assets/3a15c279-6421-4fa2-b49f-075b5eb74fc8" />
+
+> Three types of bikes classic, electric and docked bike.
+
+> There is a clear preference for classic bike over electric bikes while casual riders have used docked bikes whereas members have not.
+
+<img width="452" height="166" alt="image" src="https://github.com/user-attachments/assets/fb206681-ddac-44c9-9bc7-2fabfabec3fd" />
+
+> There is an increase for both casual and member trips during the summer months. 
+
+> Members take more trips each month, suggesting that membership does equal more usage across the year.
+
+<img width="452" height="160" alt="image" src="https://github.com/user-attachments/assets/746ce585-6187-49f3-abbf-97f7d29145e8" />
+
+> On average casual rider take longer trips while members take shorter trips. 
+
+> Examining these two charts it suggests that members take short trips more frequently while casual riders take less trips but for much longer periods of time. 
+
+<img width="452" height="207" alt="image" src="https://github.com/user-attachments/assets/29987837-42b6-4320-803b-79be8790726c" />
+
+> Members are more likely take trips on weekdays
+
+> Whereas casual riders take more trips on weekends than weekdays
+
+<img width="451" height="199" alt="image" src="https://github.com/user-attachments/assets/3a745939-24a9-44ee-be6f-c4ce6d302f26" />
+
+> Member riders have a consistent average trip length each day of the week
+
+> Casual riders average is above 2 hours each day
+
+> This suggests that casual riders use their bikes for leisure while members are using their bikes for commuting.
+
+<img width="452" height="148" alt="image" src="https://github.com/user-attachments/assets/190b797d-5e41-4bbd-af6a-ed5296867175" />
+
+<img width="452" height="148" alt="image" src="https://github.com/user-attachments/assets/6a8f9dd2-2322-463c-a547-da0fbd9bc6e0" />
+
+> These two charts show the average time of day that casual and members use their bikes
+
+> There is no significant difference between when casual and members use their bikes each day, although this similarity potentially shows that casual riders would be more likely to become a member.
+
+
+SUMMARY
+
+Casual riders 
+- Prefer using cyclistic bikes on the weekend over a weekday.
+- Take less trips on average but for longer periods of time.
+- On average start their trips at similar times to member trips.
+
+Member rides
+- Preference for using their membership on a weekday
+- Take more trips than casual members but for shorter periods of time
+- Use their bikes on average before and after a standard working day.
+
+After 
 
 
 
