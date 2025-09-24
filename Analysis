@@ -49,3 +49,18 @@ FROM "2023_Cyclistic_Trips"
 GROUP BY weekday, member_casual, time_of_day
 ORDER BY member_casual, time_of_day;
 
+-- Identify amount of trips per start location
+SELECT start_station_name, member_casual,
+  AVG(start_lat) AS start_lat, AVG(start_lng) AS start_lng,
+  COUNT(ride_id) AS total_trips
+FROM "2023_Cyclistic_Trips"
+GROUP BY start_station_name, member_casual;
+
+-- Identify amount of trips per end location
+SELECT end_station_name, member_casual,
+  AVG(end_lat) AS end_lat, AVG(end_lng) AS end_lng,
+  COUNT(ride_id) AS total_trips
+FROM "2023_Cyclistic_Trips"
+GROUP BY end_station_name, member_casual;
+
+
