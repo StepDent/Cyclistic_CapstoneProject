@@ -152,6 +152,13 @@ ANALYSE
 
 > There is no significant difference between when casual and members use their bikes each day, although this similarity potentially shows that casual riders would be more likely to become a member.
 
+<img width="2172" height="1550" alt="image" src="https://github.com/user-attachments/assets/b64248fd-752e-4eee-8903-0e83380c82d3" />
+
+> Casual riders have the most amount of their trips in the inner city near parks, zoo and the shoreline
+
+<img width="2166" height="1540" alt="image" src="https://github.com/user-attachments/assets/1d2ec1b7-d69d-4fae-8dc8-a7d02a077cb6" />
+
+> While member riders have a greater spread across the city, with density in and around the parks, zoo and shorline but also in the business part of the city.
 
 SUMMARY
 
@@ -159,13 +166,24 @@ Casual riders
 - Prefer using cyclistic bikes on the weekend over a weekday.
 - Take less trips on average but for longer periods of time.
 - On average start their trips at similar times to member trips.
+- Use their bikes in and around parks, zoo and the shoreline.
 
 Member rides
 - Preference for using their membership on a weekday
 - Take more trips than casual members but for shorter periods of time
 - Use their bikes on average before and after a standard working day.
+- Take trips across the city in leisure areas and in the business part of the city. 
 
-After 
+ACT
+
+After reviewing the information available and identifying similarities and differences between 
+the two types of users I have recommended some marketing strategies that could be used to convince our large contingent
+of casual riders to by a membership.
+
+1. Both member and casual riders use their membership in summer months, indicating that spring and summer would be a good time to start our markteting campaign.
+2. As casual riders are more likely to use their bikes in leisure location we should concentrate marketing advertisements in these locations. 
+3. As casual riders tend to use their bikes on the weekend we could introduce a membership specifically for the weekend.
+4. Introudce a discount or membership type that caters for longer bike rides.
 
 
 
